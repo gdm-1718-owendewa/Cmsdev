@@ -55,6 +55,7 @@ class EditForm extends Component{
         this.setState({[name]:value});
     }
     handleSubmit(event){
+        event.preventDefault()
         const token = localStorage.getItem('userToken');
         fetch('http://127.0.0.1:8000/api/tasks/edit/'+this.state.taskId,{
             method: "POST",
@@ -72,8 +73,11 @@ class EditForm extends Component{
                 traveldistance: this.state.traveldistance,
                 activities: this.state.activities,
             })
+        }).then(()=>{
+            localStorage.removeItem('selectedTask');
+            window.location.reload();
+
         }).catch(error=>console.log(error));
-        localStorage.removeItem('selectedTask');
     }
   render() {
     console.log(this.state)

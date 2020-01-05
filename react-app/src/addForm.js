@@ -70,9 +70,11 @@ class AddForm extends Component{
                 datediff: this.dateDiff(this.state.startdate, this.state.enddate),
                 currentday: this.getDay(this.state.startdate)
             })
+        }).then(() =>{
+            localStorage.removeItem('addTask');
+            window.location.reload();
         }).catch(error=>console.log(error));
-        localStorage.removeItem('addTask');
-        // window.location.reload();
+       
     }
   
   render() {

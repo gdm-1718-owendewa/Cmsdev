@@ -154,8 +154,6 @@ class UserController extends AbstractController
         $user = $manager->getRepository(User::class)->find($id);
         $manager->remove($user);
         $manager->flush();
-        return $this->render('user/delete.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        return $this->redirect('/users');
     }
 }

@@ -301,6 +301,7 @@ class TaskController extends AbstractController
             'tasks' => $tasks,
             'form' =>$form->createView(),
             'formpdf' =>$formpdf->createView(),
+            'state' => $usr,
         ]);
     }
     /**

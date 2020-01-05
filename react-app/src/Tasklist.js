@@ -31,6 +31,7 @@ class Takslist extends Component{
   render() {
 
     const Delete = (id)=>{
+
         const token = localStorage.getItem('userToken');
         fetch('http://127.0.0.1:8000/api/tasks/delete/'+ id,{
             method: "GET",
@@ -39,8 +40,10 @@ class Takslist extends Component{
                 'accept': 'application/json',
                 'Authorization': 'Bearer ' + token,
             }
+        }).then(() =>{
+          console.log('delete')
+          window.location.reload()
         });
-        console.log('delete')
     }
     const Edit = (id, event) => {
       localStorage.removeItem('addTask');

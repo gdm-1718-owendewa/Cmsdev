@@ -95,7 +95,7 @@ class __TwigTemplate_2acd51b364fd388aaa472c0caaa1ced667f3995ff7b5337b0281b0e840f
                 <li><a href=\"/tasks\">Tasks</a></li>
                 <li><a href=\"/hourrates\">Hourrates</a></li>
                 <li><a href=\"/transportrates\">Transportrates</a></li>
-                <li><code>| Arte Tech</code></li>
+                <li><a href=\"#\"><code>| Arte Tech</code></a></li>
             </ul>
         </nav>
     </header>
@@ -197,7 +197,7 @@ class __TwigTemplate_2acd51b364fd388aaa472c0caaa1ced667f3995ff7b5337b0281b0e840f
                 <li><a href=\"/tasks\">Tasks</a></li>
                 <li><a href=\"/hourrates\">Hourrates</a></li>
                 <li><a href=\"/transportrates\">Transportrates</a></li>
-                <li><code>| Arte Tech</code></li>
+                <li><a href=\"#\"><code>| Arte Tech</code></a></li>
             </ul>
         </nav>
     </header>

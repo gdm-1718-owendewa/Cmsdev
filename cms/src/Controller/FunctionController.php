@@ -179,7 +179,6 @@ class FunctionController extends AbstractController
                 }
             }
             array_push($prices, ["id" => $task->getId(), "price" => $price]);
-
         }
         
         $dompdf = new Dompdf();
@@ -190,8 +189,6 @@ class FunctionController extends AbstractController
         ]);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
-        $dompdf->set_option('isHtml5ParserEnabled', true);
-        
         $dompdf->render();
         $dompdf->stream("task.pdf", [
             "Attachment" => false,
