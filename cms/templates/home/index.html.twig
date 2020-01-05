@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block body %}
+
+<header>
+    <nav>
+        <ul>
+        {% if state != "anon."%}
+            {% if state.function == "Owner"%}
+                <li><a href="/">Home</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/tasks">Tasks</a></li>
+                <li><a href="/hourrates">Hourrates</a></li>
+                <li><a href="/transportrates">Transportrates</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {%elseif state.function == "Client"%}
+                <li><a href="/">Home</a></li>
+                <li><a href="/tasks/client/{{state.id}}">Tasks</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {%endif%}
+         {%else%}
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+         {%endif%}
+        </ul>
+    </nav>
+</header>
+    {% if state != "anon." %}
+        <div id="leftDiv">
+            {% if state.function == "Client" %}
+                <p> Ontvang een mail met een periode van de door u opgegeven aantal dagen</p>
+                {{ form_start(form) }}
+                {{ form_end(form) }}
+                <p> Ontvang een pdf met een periode van de door u opgegeven aantal dagen</p>
+                {{ form_start(formpdf) }}
+                {{ form_end(formpdf) }}
+            {% endif %}
+            {% if state.function == "Owner" %}
+            <h1>Most recent Users</h1>
+               {% for user in recentUsers %}
+                        <div id="recentusers">
+                            <h2>Name: {{ user.name }}</h2>
+                            <h4>Email: {{ user.email }}</h4>
+                            <p>Tel: {{ user.tel }}</p>
+                            
+                        </div>    
+                {% endfor %}
+            {% endif %}
+        </div>  
+        <div id="middleDiv"><h1>Welkom 
+            {{state.Name}}</h1>
+            {% if state.function == "Employee" or state.function == "Freelance"%}
+                <p> Als werknemer en/of freelancer moet u gebruik maken van onze company app om taken toe te kunnen voegen.</p>
+            {% endif %}
+        </div>
+        <div id="rightDiv">
+            {% if state.function == "Client" %}
+                    <h2>Your recent tasks <a href="tasks/client/{{state.id}}">see all</a></h2>
+                    <hr>
+                    {% for task in cientTasks %}
+                        <div id="clientTasks">
+                            <h4>Employee: {{ task.EmployeeId }}</h4>
+                            <p>From: {{ task.start|date('Y-m-d H:i:s')  }} Until: {{ task.end|date('Y-m-d H:i:s')  }}</p>
+                            <p> </p>
+                            <p>Activities: {{ task.activities }}</p>
+                            <p>Materials: {{ task.materials }}</p>
+                            <p>Traveldistance: {{ task.traveldistance }}km Gewerkte uren: {{ task.datediff }}uur</p>
+                        </div>
+                        <hr>
+                {% endfor %}
+            {% endif %}
+            {% if state.function == "Owner" %}
+                    <h1>Most recent Tasks</h1>
+                    {% for task in recentTasks %}
+                        <div id="recentTasks">
+                            <h2>Employee: {{ task.EmployeeId }}</h2>
+                            <p>Activities: {{ task.activities }}</p>
+                            <p>Materials: {{ task.materials }}</p>
+
+                        </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% else %}
+        <div id="leftDiv">
+        </div>  
+        <div id="middleDiv">
+        <h1>Welkom </h1>
+        <p>Om gebruik te maken van onze website gelieve in te loggen.</p>
+        <p>Deze website is bestemd voor de klanten van ARTE-TECH om hun taken op te volgen</p>
+        <p> Bent u een werknemer en/of freelancer gelieve gebruik te maken van onze app</p>
+        </div>
+        <div id="rightDiv"></div>
+    {% endif%}
+
+{% endblock %}

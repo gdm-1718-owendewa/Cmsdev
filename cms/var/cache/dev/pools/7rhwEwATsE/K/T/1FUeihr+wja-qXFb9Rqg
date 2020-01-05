@@ -1,0 +1,199 @@
+<?php //%255BApp%255CEntity%255CUser%2524CLASSMETADATA%255D%255B1%255D
+
+namespace Symfony\Component\VarExporter\Internal;
+
+return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
+    $o = [
+        clone (($p = &Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\User',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\User',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\UserRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'Name' => [
+                        'fieldName' => 'Name',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'name',
+                    ],
+                    'Email' => [
+                        'fieldName' => 'Email',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'email',
+                    ],
+                    'Tel' => [
+                        'fieldName' => 'Tel',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'tel',
+                    ],
+                    'Function' => [
+                        'fieldName' => 'Function',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'function',
+                    ],
+                    'Position' => [
+                        'fieldName' => 'Position',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'position',
+                    ],
+                    'Cost' => [
+                        'fieldName' => 'Cost',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'cost',
+                    ],
+                    'Password' => [
+                        'fieldName' => 'Password',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'password',
+                    ],
+                    'hourrate' => [
+                        'fieldName' => 'hourrate',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'options' => [
+                            'default' => 15,
+                        ],
+                        'columnName' => 'hourrate',
+                    ],
+                    'active' => [
+                        'fieldName' => 'active',
+                        'type' => 'boolean',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'options' => [
+                            'default' => true,
+                        ],
+                        'columnName' => 'active',
+                    ],
+                    'Transportrate' => [
+                        'fieldName' => 'Transportrate',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'options' => [
+                            'default' => 1,
+                        ],
+                        'columnName' => 'transportrate',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'name' => 'Name',
+                    'email' => 'Email',
+                    'tel' => 'Tel',
+                    'function' => 'Function',
+                    'position' => 'Position',
+                    'cost' => 'Cost',
+                    'password' => 'Password',
+                    'hourrate' => 'hourrate',
+                    'active' => 'active',
+                    'transportrate' => 'Transportrate',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'Name' => 'name',
+                    'Email' => 'email',
+                    'Tel' => 'tel',
+                    'Function' => 'function',
+                    'Position' => 'position',
+                    'Cost' => 'cost',
+                    'Password' => 'password',
+                    'hourrate' => 'hourrate',
+                    'active' => 'active',
+                    'Transportrate' => 'transportrate',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'user',
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+);

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <ul>
+        <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/hourrates">Hourrates</a></li>
+            <li><a href="/transportrates">Transportrates</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+    {{ form_start(registrationForm) }}
+        <h1>Register</h1>
+        {{ form_row(registrationForm.Name) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.Tel) }}
+        {{ form_row(registrationForm.Email) }}
+        {{ form_row(registrationForm.Function) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}Factuur {{User}}{% endblock %}
+{% block body %}
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/tasks">Tasks</a></li>
+                <li><a href="/hourrates">Hourrates</a></li>
+                <li><a href="/transportrates">Transportrates</a></li>
+                <li><code>| Arte Tech</code></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+      
+    {% for task in tasks %}
+        <p>Start: {{task.Start.date}}</p>
+        <p>Einde: {{task.End.date}}</p>
+        <p>Activiteiten: {{task.Activities}}</p>
+        <p>Materiaal: {{task.Materials}}</p>
+        <p>Uren: {{task.Datediff}}</p>
+        <p>Kilometers: {{task.Traveldistance}}</p>
+        {% for price in prices %}
+            {% if price.id == task.id%}
+                <p>Prijs: €{{price.price}}</p>
+            {%endif%}
+        {% endfor %}
+    {% endfor %}
+    </div>
+     
+{% endblock %}
+

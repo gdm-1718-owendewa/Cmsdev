@@ -1,0 +1,186 @@
+body {
+    margin:0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    #container{
+        margin-top:2%;
+    }
+    #leftDiv{
+        width:30%;
+        float: left;
+        height:100vh;
+        form,p{
+            width:80%;
+            @media screen and (max-width: 600px) {
+                width:100%;
+             }
+        }
+        p{
+            margin:5% auto;
+        }
+        @media screen and (max-width: 600px) {
+            width:40%;
+            margin-left:5%;
+            margin-right:5%;
+            height:50vh;
+         }
+    }
+    #middleDiv{
+        width:40%;
+        float: left;
+        height:100vh;
+        @media screen and (max-width: 600px) {
+            width:45%;
+            height:50vh;
+         }
+    }
+    #rightDiv{
+        width:30%;
+        float: left;
+        height:100vh;
+        @media screen and (max-width: 600px) {
+            width:90%;
+            margin-left:5%;
+            margin-top:20%;
+         }
+         a{
+            text-decoration: none;
+            color:#C0CC5A;
+         }
+    }
+    a#editButton{
+        background-color:orange;
+        color:#ffffff;
+        text-decoration: none;
+        padding:.5%;
+    }
+    a#deleteButton{
+        background-color:red;
+        color:#ffffff;
+        text-decoration: none;
+        padding:.5%;
+    }
+    a#add-button{
+        text-decoration: none;
+        background-color: #C0CC5A;
+        color:#ffffff;
+        padding:0.75% 2%;  
+        margin:5% 26.5%;
+
+    }
+    a#taskdetailButton{
+        text-decoration: none;
+        color:#378DE3;
+    }
+    header {
+        background-color: #378DE3;
+        max-width:1920px;
+        padding:1%;
+        nav{
+            ul{
+                li{
+                    list-style-type: none;
+                    display: inline;
+                    a{
+                        text-decoration: none;
+                        color:#ffffff;
+                    }
+                }
+                li +li {
+                    margin-left:3%;
+                }
+            }
+        }
+    }
+    table{
+        margin:5% auto;
+        max-width:800px;
+        tr:first-child{
+            background-color: #378DE3;
+            color:#ffffff;  
+
+        }
+        tr:first-child th{
+            padding:.5%;
+        }
+        tr th{
+            @media screen and (max-width: 600px) {
+                display:none;
+             }
+        }
+        tr td{
+            width:20%;
+            padding:1%;
+            @media screen and (max-width: 600px) {
+               display:block;
+               border:1px solid black;
+               border-collapse: collapse;
+               width:300px;
+            }
+            
+        }
+        tr td #edit{
+            color:orange;
+            text-decoration: none;
+        }
+        tr td #delete{
+            color:red;
+            text-decoration: none;
+        }
+    }
+    form{
+        margin:5% auto;
+        max-width:800px;
+        @media screen and (max-width: 600px) {
+            width:80%;
+         }
+        label{
+            display: block;
+            margin:1% 0%;   
+
+        }
+        div#registration_form_Function label{
+            display: inline;
+        }
+        div#registration_form_Function input[type="radio"]{
+            width:2%;
+        }
+        div#form_Start{
+            margin-bottom:1%;   
+        }
+        div#form_End #form_End_date select, div#form_Start #form_Start_date select{
+            width:33.33%;
+            margin-bottom:1%;
+            display: inline;
+        }
+        div#form_End #form_End_time select, div#form_Start #form_Start_time select{
+            width:49.7%;
+            display: inline;
+            @media screen and (max-width: 600px) {
+                width:49.3%;
+             }
+        }
+        input,textarea,select,button{
+            width:100%;
+            height: 4vh;
+        }
+       button{
+           margin-top:1%;
+           background-color: #C0CC5A;
+            color:#ffffff; 
+       }
+    }
+    #detailTaskContainer{
+        width:400px;
+        margin-left:3%;
+        margin-bottom:2%;
+        float:left;
+    }
+}
+

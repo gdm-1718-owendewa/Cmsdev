@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskController!{% endblock %}
+
+{% block body %} 
+
+<header>
+    <nav>
+        <ul>
+        {%if state.function == "Owner"%}
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/hourrates">Hourrates</a></li>
+            <li><a href="/transportrates">Transportrates</a></li>
+            <li><a href="/logout">Logout</a></li>
+        {% else%}
+            <li><a href="/">Home</a></li>
+            <li><a href="/tasks/client/{{state.id}}">Tasks</a></li>
+            <li><a href="/logout">Logout</a></li>
+        {%endif%}
+        </ul>
+    </nav>
+</header>
+{{ form_start(form) }}
+{{ form_end(form) }}
+{{ form_start(formpdf) }}
+{{ form_end(formpdf) }}
+{% for task in tasks %}
+        <div id="detailTaskContainer">
+            <h2>Employee: {{ task.EmployeeId }}</h2>
+            {%if state.function == "Owner"%}
+            <h3>Client: {{ task.ClientId }}</h3>
+            {%endif%}
+            <p>From: {{ task.start|date('Y-m-d H:i:s')  }}</p>
+            <p> Until: {{ task.end|date('Y-m-d H:i:s')  }}</p>
+            <p>Break Time: {{ task.break }}</p>
+            <p>Activities: {{ task.activities }}</p>
+            <p>Materials: {{ task.materials }}</p>
+            <p>Traveldistance: {{ task.traveldistance }}km</p>
+            <p>Gewerkte uren: {{ task.datediff }} uur</p>
+            {%if state.function == "Owner"%}
+            <p>Dag: {{ task.currentday }}</p>
+            <a id="editButton" href="/edit-task/{{task.Id}}">Edit</a>
+            <a id="deleteButton" href="/delete-task/{{task.Id}}">Delete</a>
+            {%endif%}
+                                    <hr>
+
+         </div>
+         
+    {% endfor %}
+{% endblock %}

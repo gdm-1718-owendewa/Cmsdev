@@ -1,0 +1,49 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskController!{% endblock %}
+
+{% block body %}    
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<header>
+    <nav>
+        <ul>
+        <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+            <li><a href="/hourrates">Hourrates</a></li>
+            <li><a href="/transportrates">Transportrates</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="container">
+<a href="add-task" id="add-button"> Add </a>
+<table >
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Function</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+        {% if user.function == 'Client'%}
+             <td><p>{{user.Name}} </p></td>
+             <td><p>{{user.Email}} </p></td>
+            <td><p>{{user.Function}}</p></td>
+            <td> <a href="/tasks/client/{{user.id}}" id="taskdetailButton">Tasks</a></td>
+        {%else%}
+             <td><p>{{user.Name}} </p></td>
+             <td><p>{{user.Email}} </p></td>
+            <td><p>{{user.Function}}</p></td>
+            <td> <a href="/tasks/{{user.id}}" id="taskdetailButton">Tasks</a></td>
+        {% endif %}
+        </tr>
+    {% endfor %}
+</table>    
+</div>
+{% endblock %}

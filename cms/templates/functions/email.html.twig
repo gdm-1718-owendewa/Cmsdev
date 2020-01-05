@@ -1,0 +1,18 @@
+  {% extends 'base.html.twig' %}
+{% block body %}
+
+  <h2>Mail voor {{User}}</h2>
+  {% for task in tasks %}
+        <p>Start: {{task.Start.date}}</p>
+        <p>Einde: {{task.End.date}}</p>
+        <p>Activiteiten: {{task.Activities}}</p>
+        <p>Materiaal: {{task.Materials}}</p>
+        <p>Uren: {{task.Datediff}}</p>
+        <p>Kilometers: {{task.Traveldistance}}</p>
+        {% for price in prices %}
+            {% if price.id == task.id%}
+                <p>Prijs: €{{price.price}}</p>
+            {%endif%}
+        {% endfor %}
+  {% endfor %}
+  {%endblock%}
