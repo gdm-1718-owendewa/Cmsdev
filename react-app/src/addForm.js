@@ -49,6 +49,7 @@ class AddForm extends Component{
         return (dt2total - dt1total)/60
     }
     handleSubmit(event){  
+        event.preventDefault()
         const token = localStorage.getItem('userToken');
         fetch('http://127.0.0.1:8000/api/tasks',{
             method: "POST",
@@ -56,7 +57,6 @@ class AddForm extends Component{
                 'Content-Type': 'application/json',
                 'accept': 'application/json',
                 'Authorization': 'Bearer ' + token
-
             },
             body:JSON.stringify({
                 userId: this.state.userId,
@@ -70,18 +70,16 @@ class AddForm extends Component{
                 datediff: this.dateDiff(this.state.startdate, this.state.enddate),
                 currentday: this.getDay(this.state.startdate)
             })
-        }).then(() =>{
-            localStorage.removeItem('addTask');
-            window.location.reload();
-        }).catch(error=>console.log(error));
-       
+        })        .catch(error=>console.log(error));
+
+        localStorage.removeItem('addTask');
     }
   
   render() {
       if(this.state.clients !== null){
     return (
         <div>
-      <form onSubmit={this.handleSubmit}>
+      <form>
           <label>
               Client:
           <select name="clientId" required onChange={this.handleChange}>
@@ -99,7 +97,7 @@ class AddForm extends Component{
           <label>Activities:<textarea required name="activities"  onChange={this.handleChange}/></label>
           <label>Materials:<textarea required name="materials" onChange={this.handleChange}/></label>
           <label>Traveldistance:<input required name="traveldistance" onChange={this.handleChange}/></label>          
-          <input type="submit" value="Add" />
+          <input type="submit" value="Add" onClick={this.handleSubmit}/>
 
       </form>
       </div>

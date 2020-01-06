@@ -191,8 +191,8 @@ class FunctionController extends AbstractController
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $dompdf->stream("task.pdf", [
-            "Attachment" => false,
+            "Attachment" => true,
         ]);
-        return new Response('response');
+        return new Response();
     }
 }

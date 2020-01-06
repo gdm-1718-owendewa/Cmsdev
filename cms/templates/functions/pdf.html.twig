@@ -10,12 +10,11 @@
                 <li><a href="/tasks">Tasks</a></li>
                 <li><a href="/hourrates">Hourrates</a></li>
                 <li><a href="/transportrates">Transportrates</a></li>
-                <li><a href="#"><code>| Arte Tech</code></a></li>
+                <li><code>| Arte Tech</code></li>
             </ul>
         </nav>
     </header>
     <div>
-      
     {% for task in tasks %}
         <p>Start: {{task.Start.date}}</p>
         <p>Einde: {{task.End.date}}</p>
